@@ -48,7 +48,7 @@ Each category includes relevant subcategories for detailed expense tracking.
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/genaiwithms/expense-tracker-mcp.git
+git clone https://github.com/yourusername/expense-tracker-mcp.git
 cd expense-tracker-mcp
 ```
 
@@ -87,3 +87,107 @@ Add the server to your Claude Desktop configuration file:
 ### Other MCP Clients
 
 For other MCP-compatible clients, use the stdio transport and point to the `main.py` file.
+
+## Usage Examples
+
+### Adding Expenses
+
+"Add an expense of 50 Rs for travel to Sargodha yesterday"
+
+"I spent 500 on food and 300 on healthcare today"
+
+### Tracking Income
+
+"I received my salary of 40,000 Rs today"
+
+"Add a credit of 5000 Rs from freelance work"
+
+### Getting Summaries
+
+"Show me all my expenses for this month"
+
+"What's my total food expense for the last week?"
+
+"Summarize my spending by category"
+
+"How much salary do I have remaining?"
+
+### Managing Records
+
+"Edit expense #5 and change the amount to 600"
+
+"Delete expense #12"
+
+"Show me all expenses from October 1 to October 10"
+
+## Available Tools
+
+### Expenses
+- `add_expense` - Add a new expense entry
+- `delete_expense` - Delete an expense by ID
+- `edit_expense` - Edit an existing expense
+- `list_expenses` - List expenses within a date range
+- `summarize` - Get expense summary by category
+
+### Income/Credits
+- `add_credit` - Add income/salary entry
+- `list_credits` - List credits within a date range
+- `summarize_credits` - Get income summary by category
+- `edit_credit` - Edit an existing credit entry
+
+### Categories & Summaries
+- `list_categories` - View all available categories and subcategories
+- `save_salary_summary` - Save a custom financial summary
+- `list_salary_summaries` - View saved financial summaries
+
+## Database Schema
+
+The server uses SQLite with the following tables:
+
+- **expenses**: id, date, amount, category, subcategory, note
+- **credits**: id, date, amount, category, note
+- **custom_salary_summaries**: id, summary_text, timestamp
+
+## Development
+
+### Project Structure
+
+```
+expense-tracker-mcp/
+├── main.py              # MCP server implementation
+├── categories.json      # Category definitions
+├── expenses.db          # SQLite database (auto-created)
+├── pyproject.toml       # Project configuration
+└── README.md            # This file
+```
+
+### Adding Custom Categories
+
+Edit `categories.json` to add or modify expense categories and subcategories.
+
+## Privacy & Security
+
+- All data is stored locally on your machine
+- No data is sent to external servers
+- Database file is created in the project directory
+- Suitable for personal financial tracking
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is open source and available under the MIT License.
+
+## Acknowledgments
+
+Built with [FastMCP](https://github.com/jlowin/fastmcp) - A Python framework for building MCP servers.
+
+## Support
+
+For issues, questions, or suggestions, please open an issue on GitHub.
+
+---
+
+**Note**: This MCP server is designed for personal use.
