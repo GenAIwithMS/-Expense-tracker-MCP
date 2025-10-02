@@ -43,23 +43,22 @@ Each category includes relevant subcategories for detailed expense tracking.
 
 - Python >= 3.13
 - [uv](https://github.com/astral-sh/uv) (for dependency management)
-
-If you don’t already have `uv`, install it with:
-``bash
-pip install uv``
-
+  If you don’t already have `uv`, install it with:
+  ```bash
+  pip install uv```
 
 ### Setup
 
 1. Clone the repository:
-``bash
-git clone https://github.com/genaiwithms/expense-tracker-mcp.git
-cd expense-tracker-mcp``
-
+```bash
+git clone https://github.com/yourusername/expense-tracker-mcp.git
+cd expense-tracker-mcp
+```
 
 2. Install dependencies:
-``bash
-uv add fastmcp``
+```bash
+uv add fastmcp
+```
 
 3. Run the server:
 ```bash
@@ -194,4 +193,4 @@ For issues, questions, or suggestions, please open an issue on GitHub.
 
 ---
 
-**Note**: This MCP server is designed for personal use.
+**Note**: This MCP server is designed for personal use. Always keep backups of your `expenses.db` file to prevent data loss.
