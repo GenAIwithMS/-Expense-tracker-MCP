@@ -45,21 +45,21 @@ Each category includes relevant subcategories for detailed expense tracking.
 - [uv](https://github.com/astral-sh/uv) (for dependency management)
 
 If you don’t already have `uv`, install it with:
-```bash
-pip install uv```
+``bash
+pip install uv``
 
 
 ### Setup
 
 1. Clone the repository:
-```bash
+``bash
 git clone https://github.com/genaiwithms/expense-tracker-mcp.git
-cd expense-tracker-mcp```
+cd expense-tracker-mcp``
 
 
 2. Install dependencies:
-```bash
-uv add fastmcp```
+``bash
+uv add fastmcp``
 
 3. Run the server:
 ```bash
