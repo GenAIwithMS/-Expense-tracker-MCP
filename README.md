@@ -80,7 +80,7 @@ Add the server to your Claude Desktop configuration file:
 {
   "mcpServers": {
     "expense-tracker": {
-      "command": "python",
+      "command": "absolute-path-to-python",
       "args": [
         "/absolute/path/to/expense-tracker-mcp/main.py"
       ]
