@@ -46,16 +46,15 @@ Each category includes relevant subcategories for detailed expense tracking.
 
 If you don’t already have `uv`, install it with:
 ```bash
-pip install uv
+pip install uv```
 
 
 ### Setup
 
 1. Clone the repository:
-```bash
 git clone https://github.com/yourusername/expense-tracker-mcp.git
 cd expense-tracker-mcp
-```
+
 
 2. Install dependencies:
 ```bash
