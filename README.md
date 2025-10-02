@@ -43,7 +43,7 @@ Each category includes relevant subcategories for detailed expense tracking.
 
 - Python >= 3.13
 - [uv](https://github.com/astral-sh/uv) (for dependency management)
-  If you don’t already have `uv`, install it with:
+If you don’t already have `uv`, install it with:
   ```bash
   pip install uv```
 
