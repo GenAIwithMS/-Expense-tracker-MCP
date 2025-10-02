@@ -42,7 +42,12 @@ Each category includes relevant subcategories for detailed expense tracking.
 ### Prerequisites
 
 - Python >= 3.13
-- pip
+- [uv](https://github.com/astral-sh/uv) (for dependency management)
+
+If you don’t already have `uv`, install it with:
+```bash
+pip install uv
+
 
 ### Setup
 
@@ -54,8 +59,7 @@ cd expense-tracker-mcp
 
 2. Install dependencies:
 ```bash
-pip install fastmcp
-```
+uv add fastmcp
 
 3. Run the server:
 ```bash
