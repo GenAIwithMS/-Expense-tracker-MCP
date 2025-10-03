@@ -4,68 +4,66 @@ A Model Context Protocol (MCP) server for personal expense tracking and manageme
 
 ## Features
 
-- 💰 **Expense Management**: Add, edit, delete, and list expenses with categories and subcategories
-- 💵 **Income Tracking**: Record salary and other income sources
-- 📊 **Smart Summaries**: Get spending breakdowns by category and date range
-- 🏷️ **Categorization**: 20+ predefined categories with subcategories for detailed tracking
-- 📝 **Custom Notes**: Add notes to any transaction for better context
-- 💾 **Local Storage**: All data stored locally in SQLite database
-- 📈 **Salary Summaries**: Save custom financial summaries for reference
+- 💰 **Expense Management**: Add, edit, delete, and list expenses with categories and subcategories  
+- 💵 **Income Tracking**: Record salary and other income sources  
+- 📊 **Smart Summaries**: Get spending breakdowns by category and date range  
+- 🏷️ **Built-in Categorization**: Predefined categories with subcategories for detailed tracking  
+- 📝 **Custom Notes**: Add notes to any transaction for better context  
+- 💾 **Local Storage**: All data stored locally in SQLite database  
+- 📈 **Salary Summaries**: Save custom financial summaries for reference  
 
-## Categories Supported
-
-- Food & Dining
-- Transport
-- Housing
-- Utilities
-- Health
-- Education
-- Family & Kids
-- Entertainment
-- Shopping
-- Subscriptions
-- Personal Care
-- Gifts & Donations
-- Finance & Fees
-- Business
-- Travel
-- Home
-- Pet
-- Taxes
-- Investments
-- Miscellaneous
-
-Each category includes relevant subcategories for detailed expense tracking.
+---
 
 ## Installation
 
 ### Prerequisites
 
-- Python >= 3.13
-- [uv](https://github.com/astral-sh/uv) (for dependency management)
-  
-If you don’t already have `uv`, install it with:
+- Python >= 3.13  
+- [uv](https://github.com/astral-sh/uv) (recommended package manager)  
+
+If you don’t have `uv`, install it using:  
 ```bash
 pip install uv
 ```
 
 ### Setup
 
-1. Clone the repository:
+Clone the repository:
+
 ```bash
-git clone https://github.com/genaiwithms/expense-tracker-mcp.git
+git clone https://github.com/yourusername/expense-tracker-mcp.git
 cd expense-tracker-mcp
 ```
 
-2. Install dependencies:
+Install dependencies:
+
 ```bash
 uv add fastmcp
 ```
 
-3. Run the server:
+Run the server:
+
 ```bash
 python main.py
 ```
+
+---
+
+## Using Built-in Categories
+
+We provide built-in categories to prevent misinformation and duplication (for example, Claude may write "Food" and "Dining" as separate categories). Using our built-in categories ensures consistency and accuracy in your expense tracking.
+
+**How to use built-in categories with Claude:**
+
+1. Click on the ➕ plus icon where you attach files.
+2. Select “Add from expense tracker”.
+3. Click on the `categories.json` file.
+4. Now you can simply ask Claude:  
+   **“Use the categories I attached”**
+
+This will help Claude (or any MCP client) use the correct, consistent categories for your expenses.
+
+---
 
 ## Configuration
 
@@ -73,61 +71,82 @@ python main.py
 
 Add the server to your Claude Desktop configuration file:
 
-**MacOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
-**Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+- **MacOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Windows:** `%APPDATA%\Claude\claude_desktop_config.json`
+
+Example configuration:
 
 ```json
-{
-  "mcpServers": {
-    "expense-tracker": {
-      "command": "absolute-path-to-python",
-      "args": [
-        "/absolute/path/to/expense-tracker-mcp/main.py"
-      ]
-    }
-  }
+"ExpenseTracker": {
+  "command": "absolute \\path\\to\\uv",
+  "args": [
+    "run",
+    "--with",
+    "fastmcp",
+    "fastmcp",
+    "run",
+    "\\absolute\\path to \\Expense-tracker-mcp\\main.py"
+  ],
+  "env": {},
+  "transport": "stdio",
+  "type": null,
+  "cwd": null,
+  "timeout": null,
+  "description": null,
+  "icon": null,
+  "authentication": null
 }
 ```
 
-### Other MCP Clients
+**Important for New Users:**  
+Replace `"absolute \\path\\to\\uv"` with the full path to your `uv` binary.  
+Replace `"\\absolute\\path to \\Expense-tracker-mcp\\main.py"` with the full path to your `main.py` file inside this project.
 
-For other MCP-compatible clients, use the stdio transport and point to the `main.py` file.
+If you’re unsure about your `uv` path, run:
+
+```bash
+which uv
+```
+(on Mac/Linux) or
+
+```powershell
+where uv
+```
+(on Windows)
+
+---
 
 ## Usage Examples
 
 ### Adding Expenses
 
-"Add an expense of 50 Rs for travel to Sargodha yesterday"
-
-"I spent 500 on food and 300 on healthcare today"
+- "Add an expense of 50 Rs for travel to Sargodha yesterday"
+- "I spent 500 on food and 300 on healthcare today"
 
 ### Tracking Income
 
-"I received my salary of 40,000 Rs today"
-
-"Add a credit of 5000 Rs from freelance work"
+- "I received my salary of 40,000 Rs today"
+- "Add a credit of 5000 Rs from freelance work"
 
 ### Getting Summaries
 
-"Show me all my expenses for this month"
-
-"What's my total food expense for the last week?"
-
-"Summarize my spending by category"
-
-"How much salary do I have remaining?"
+- "Show me all my expenses for this month"
+- "What's my total food expense for the last week?"
+- "Summarize my spending by category"
+- "How much salary do I have remaining?"
 
 ### Managing Records
 
-"Edit expense #5 and change the amount to 600"
+- "Edit expense #5 and change the amount to 600"
+- "Delete expense #12"
+- "Show me all expenses from October 1 to October 10"
 
-"Delete expense #12"
-
-"Show me all expenses from October 1 to October 10"
+---
 
 ## Available Tools
 
 ### Expenses
+
 - `add_expense` - Add a new expense entry
 - `delete_expense` - Delete an expense by ID
 - `edit_expense` - Edit an existing expense
@@ -135,23 +154,25 @@ For other MCP-compatible clients, use the stdio transport and point to the `main
 - `summarize` - Get expense summary by category
 
 ### Income/Credits
+
 - `add_credit` - Add income/salary entry
 - `list_credits` - List credits within a date range
 - `summarize_credits` - Get income summary by category
-- `edit_credit` - Edit an existing credit entry
 
-### Categories & Summaries
+### Categories
+
 - `list_categories` - View all available categories and subcategories
-- `save_salary_summary` - Save a custom financial summary
-- `list_salary_summaries` - View saved financial summaries
+
+---
 
 ## Database Schema
 
 The server uses SQLite with the following tables:
 
-- **expenses**: id, date, amount, category, subcategory, note
-- **credits**: id, date, amount, category, note
-- **custom_salary_summaries**: id, summary_text, timestamp
+- **expenses:** id, date, amount, category, subcategory, note
+- **credits:** id, date, amount, category, note
+
+---
 
 ## Development
 
@@ -170,6 +191,8 @@ expense-tracker-mcp/
 
 Edit `categories.json` to add or modify expense categories and subcategories.
 
+---
+
 ## Privacy & Security
 
 - All data is stored locally on your machine
@@ -177,22 +200,28 @@ Edit `categories.json` to add or modify expense categories and subcategories.
 - Database file is created in the project directory
 - Suitable for personal financial tracking
 
+---
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
+
+---
 
 ## License
 
 This project is open source and available under the MIT License.
 
+---
+
 ## Acknowledgments
 
-Built with [FastMCP](https://github.com/jlowin/fastmcp) - A Python framework for building MCP servers.
+Built with FastMCP - A Python framework for building MCP servers.
+
+---
 
 ## Support
 
 For issues, questions, or suggestions, please open an issue on GitHub.
 
----
-
-**Note**: This MCP server is designed for personal use. Always keep backups of your `expenses.db` file to prevent data loss.
+> **Note:** This MCP server is designed for personal use. Always keep backups of your `expenses.db` file to prevent data loss.
