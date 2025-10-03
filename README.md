@@ -104,15 +104,15 @@ Replace `"\\absolute\\path to \\Expense-tracker-mcp\\main.py"` with the full pat
 
 If you’re unsure about your `uv` path, run:
 
+Mac/Linux
 ```bash
 which uv
 ```
-(on Mac/Linux) or
 
+on Windows
 ```powershell
 where uv
 ```
-(on Windows)
 
 ---
 
