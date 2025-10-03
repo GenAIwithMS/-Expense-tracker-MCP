@@ -31,7 +31,7 @@ pip install uv
 Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/expense-tracker-mcp.git
+git clone https://github.com/genaiwithms/expense-tracker-mcp.git
 cd expense-tracker-mcp
 ```
 
